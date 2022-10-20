@@ -1,23 +1,65 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { MoviesWinnersByYearComponent } from './movies-winners-by-year.component';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {MoviesWinnersByYearComponent} from './movies-winners-by-year.component';
+import {GenericService} from "../../services/generic.service";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {of as observableOf, of} from "rxjs";
+import {WinerByYear} from "../../models/winerByYear.model";
+import {FormBuilder} from "@angular/forms";
 
 describe('MoviesWinnersByYearComponent', () => {
   let component: MoviesWinnersByYearComponent;
   let fixture: ComponentFixture<MoviesWinnersByYearComponent>;
+  let service: GenericService<WinerByYear[]>;
+
+  const mockService: WinerByYear[] = [
+    new WinerByYear(),
+    new WinerByYear(),
+    new WinerByYear(),
+    new WinerByYear(),
+    new WinerByYear(),
+    new WinerByYear(),
+  ]
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MoviesWinnersByYearComponent ]
-    })
-    .compileComponents();
+      imports: [HttpClientTestingModule],
+      declarations: [MoviesWinnersByYearComponent],
+      providers: [
+        FormBuilder,
+        {
+          provide: GenericService,
+          useValue: {
+            search: () => of(mockService)
+          }
+        }
+      ]
+    }).compileComponents();
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(MoviesWinnersByYearComponent);
     component = fixture.componentInstance;
+    service = fixture.debugElement.injector.get(GenericService<WinerByYear[]>);
     fixture.detectChanges();
   });
 
   it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should fetch items by year', () => {
+    service = TestBed.inject(GenericService<WinerByYear[]>);
+    spyOn(service, 'search').and.returnValue(observableOf(mockService));
+    component.fetchItemsByYear();
+    expect(component).toBeTruthy();
+  });
+
+  it('should have 6 items in the years array', () => {
+    service = TestBed.inject(GenericService<WinerByYear[]>);
+    const teste = spyOn(service, 'search').and.returnValue(observableOf(mockService));
+    console.log('teste', teste);
+    component.fetchItemsByYear();
+    expect(fixture.componentInstance.winerByYear.length).toEqual(6);
     expect(component).toBeTruthy();
   });
 });

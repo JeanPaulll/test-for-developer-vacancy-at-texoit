@@ -51,7 +51,7 @@ export class MoviesWinnersByYearComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit(): void {
-        setTimeout(()=>this.init = true, 300);
+        setTimeout(()=> this.init = true, 300);
     }
 
 }
