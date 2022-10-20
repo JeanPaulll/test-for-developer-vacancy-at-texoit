@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "npm run lint:fix && ng serve",
-    "build": "npm run lint && npm run test && npm run angular-builds",
+    "build": "ng build",
+    "build:local": "npm run lint && npm run test && npm run angular-builds",
     "watch": "ng build --watch --configuration development",
     "test": "ng test --watch=false --sourceMap=true --browsers=ChromeHeadlessNoSandbox --codeCoverage=true && gaw-lcov-unifier",
     "test:prod": "shx rm -rf coverage && ng test --watch=false --sourceMap=true --browsers=ChromeHeadlessNoSandbox --codeCoverage=true",
