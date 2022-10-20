@@ -1,19 +1,16 @@
-# Processo Seletivo para Desenvolvedor - www.texoit.com
+# Objetivo / Especificação do Teste
+#### Processo seletivo para desenvolvedor
 
-## Author
->Jean Paul
-
->jeanpaulwebb@gmail.com
-
-## Página de demonstração
-https://####
-* [Demo](https://####)
-
-## Objetivo - Especificação do Teste
 Desenvolver uma interface para possibilitar a leitura da lista de indicados e vencedores
 da categoria Pior Filme do Golden Raspberry Awards.
 
-# A aplicação deverá ser composta por 2 views:
+[Texoit](https:///www.texoit.com)
+
+## Para visualizar o resultado acesse:
+https://test-dev-texoit.netlify.app
+* [Demonstração](https://test-dev-texoit.netlify.app)
+
+## A aplicação deverá ser composta por 2 views:
 - Dashboard
 - Lista de todos os filmes
 
@@ -43,6 +40,11 @@ da categoria Pior Filme do Golden Raspberry Awards.
 3. Boas práticas de implementação;
 4. Documentação.
 5. O código-fonte deve ser disponibilizado em um repositório git (Github, Gitlab, Bitbucket, etc).
+
+## Author
+>Jean Paul
+
+>jeanpaulwebb@gmail.com
 
 ## Protótipos
 ![Protótipo 1](https://raw.githubusercontent.com/JeanPaulll/test-for-developer-vacancy-at-texo-it/master/src/assets/prototipos/1.png)
