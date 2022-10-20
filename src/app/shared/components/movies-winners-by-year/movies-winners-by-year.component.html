@@ -1,0 +1,80 @@
+<div class="card">
+    <div class="card-body">
+        <h6 class="card-title">LISTAR VENCEDORES DE FILMES POR ANO</h6>
+        <p class="text-muted mb-3">Pesquisar por ano</p>
+        <form class="search-form" [formGroup]="form">
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control" mask="0000" formControlName="year" placeholder="Busque por uma data. Exemplo: 2022">
+                    <button type="button" class="btn btn-primary btn-icon" (click)="fetchItemsByYear()" [disabled]="!form.valid">
+                        <i data-feather="search"></i>
+                    </button>
+                </div>
+                <messages-control-validations [control]="form?.get('year')"></messages-control-validations>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="card-body" *ngIf="init">
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Ano</th>
+                <th>Titulo</th>
+                <th>Ação</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr [hidden]="winerByYear?.length">
+                <th colspan="4">
+                    <div class="alert alert-primary" role="alert">
+                        Não encontramos item(ns) que atenda(m) a sua consulta.
+                    </div>
+                </th>
+            </tr>
+            <tr *ngFor="let winer of winerByYear; let i = index">
+                <th>{{winer?.id}}</th>
+                <th>{{winer?.year}}</th>
+                <th>{{winer?.title}}</th>
+                <th>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#yearModal">
+                        Visualizar
+                    </button>
+                </th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal fade" id="yearModal" tabindex="-1" aria-labelledby="winnerModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="winnerModal">
+                    {{winerByYear[0]?.title}}
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
+            </div>
+            <div class="modal-body">
+                <h5>Studios:</h5>
+               <ul class="list-group list-group-flush">
+                   <li class="list-group-item" *ngFor="let item of winerByYear[0]?.studios">
+                        {{item}}
+                   </li>
+               </ul>
+                <h5>Prudutores:</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" *ngFor="let item of winerByYear[0]?.producers">
+                        {{item}}
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
