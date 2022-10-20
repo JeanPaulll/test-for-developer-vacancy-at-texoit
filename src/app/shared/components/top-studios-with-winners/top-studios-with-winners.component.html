@@ -1,0 +1,21 @@
+<div class="card-body">
+    <h6 class="card-title">{{title}}</h6>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>Contagem de vitórias</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let studio of studios; let i = index">
+                <td>{{i+1}}</td>
+                <th>{{studio?.name}}</th>
+                <th>{{studio?.winCount}}</th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

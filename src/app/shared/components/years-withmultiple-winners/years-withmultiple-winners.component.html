@@ -1,0 +1,21 @@
+<div class="card-body">
+    <h6 class="card-title">{{title}}</h6>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Ano</th>
+                <th>Contagem de vitórias</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let year of years; let i = index">
+                <td>{{i+1}}</td>
+                <th>{{year?.year}}</th>
+                <th>{{year?.winnerCount}}</th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
