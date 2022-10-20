@@ -17,6 +17,14 @@ export class TopStudiosWithWinnersComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.search();
+    }
+
+    private filterTheLast(studios: Studio[] = [], amount: number = 3): Studio[] {
+        return studios.splice(0, amount);
+    }
+
+    search(): void {
         const parameters: IParameters = {
             projection: Projection.STUDIOS_WITH_WIN_COUNT
         };
@@ -26,9 +34,4 @@ export class TopStudiosWithWinnersComponent implements OnInit {
             }
         }, (e) => console.error(e));
     }
-
-    private filterTheLast(studios: Studio[] = [], amount: number = 3): Studio[] {
-        return studios.splice(0, amount);
-    }
-
 }

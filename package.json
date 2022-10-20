@@ -6,8 +6,9 @@
     "start": "npm run lint:fix && ng serve",
     "build": "npm run lint && npm run test && npm run angular-builds",
     "watch": "ng build --watch --configuration development",
-    "test": "shx rm -rf coverage && ng test --watch=false --sourceMap=true --browsers=ChromeHeadlessNoSandbox --codeCoverage=true && gaw-lcov-unifier",
-    "test:local": "shx rm -rf coverage && ng test --watch=true --sourceMap=true --browsers=ChromeHeadlessNoSandbox --codeCoverage=true && gaw-lcov-unifier",
+    "test": "ng test --watch=false --sourceMap=true --browsers=ChromeHeadlessNoSandbox --codeCoverage=true && gaw-lcov-unifier",
+    "test:prod": "shx rm -rf coverage && ng test --watch=false --sourceMap=true --browsers=ChromeHeadlessNoSandbox --codeCoverage=true",
+    "test:local": "shx rm -rf coverage && ng test --watch=true",
     "angular-builds": "ng build",
     "lint": "ng lint --max-warnings 0",
     "lint:fix": "ng lint --fix"
@@ -51,6 +52,7 @@
     "karma-jasmine-html-reporter": "~2.0.0",
     "prettier": "^2.7.1",
     "prettier-eslint": "^15.0.1",
+    "shx": "^0.3.4",
     "typescript": "~4.7.2"
   }
 }
