@@ -32,6 +32,6 @@ export class TopStudiosWithWinnersComponent implements OnInit {
             if (Array.isArray(response.studios) && response.studios.length) {
                 this.studios = this.filterTheLast(response.studios);
             }
-        }, (e) => console.error(e));
+        });
     }
 }

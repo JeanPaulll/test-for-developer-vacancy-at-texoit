@@ -61,4 +61,19 @@ describe('MoviesWinnersByYearComponent', () => {
     expect(fixture.componentInstance.winerByYear.length).toEqual(6);
     expect(component).toBeTruthy();
   });
+
+  function doAsync() {
+    setTimeout(() => {
+    }, 300)
+  }
+
+  it('should await setTimeout ngAfterViewInit', async () => {
+    service = TestBed.inject(GenericService<WinerByYear[]>);
+    component.ngAfterViewInit();
+    component.init = false;
+    expect(component.init).toEqual(false);
+    await doAsync();
+    expect(component.init).toEqual(false);
+    expect(component).toBeTruthy();
+  });
 });

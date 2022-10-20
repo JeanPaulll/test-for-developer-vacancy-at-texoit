@@ -33,7 +33,7 @@ export class MaxMinIntervalBetweenWinsComponent implements OnInit {
       if (response) {
         this.maxMin = response
       }
-    }, (e) => console.error(e));
+    });
   }
 
 }

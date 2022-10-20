@@ -25,6 +25,6 @@ export class YearsWithmultipleWinnersComponent implements OnInit {
         };
         this.genericService.search(parameters).subscribe((response: { years: Year[] }) => {
             if (Array.isArray(response.years) && response.years.length) this.years = response.years;
-        }, (e) => console.error(e));
+        });
     }
 }

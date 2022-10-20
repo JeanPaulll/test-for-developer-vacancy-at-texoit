@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test --watch=false --sourceMap=true --browsers=ChromeHeadlessNoSandbox --codeCoverage=true && gaw-lcov-unifier",
     "test:prod": "shx rm -rf coverage && ng test --watch=false --sourceMap=true --browsers=ChromeHeadlessNoSandbox --codeCoverage=true",
-    "test:local": "shx rm -rf coverage && ng test --watch=true",
+    "test:local": "shx rm -rf coverage && ng test --watch=true --code-coverage",
     "angular-builds": "ng build",
     "lint": "ng lint --max-warnings 0",
     "lint:fix": "ng lint --fix"

@@ -37,7 +37,7 @@ export class MoviesWinnersByYearComponent implements OnInit, AfterViewInit {
             if (response) {
                 this.winerByYear = response
             }
-        }, (e) => console.error(e));
+        });
     }
 
     private createForm(): void {
@@ -53,6 +53,5 @@ export class MoviesWinnersByYearComponent implements OnInit, AfterViewInit {
     ngAfterViewInit(): void {
         setTimeout(()=> this.init = true, 300);
     }
-
 }
 
