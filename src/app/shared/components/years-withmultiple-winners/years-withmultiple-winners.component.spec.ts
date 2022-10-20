@@ -52,7 +52,6 @@ describe('YearsWithmultipleWinnersComponent', () => {
   it('should have 4 items in the years array', () => {
     service = TestBed.inject(GenericService<{ studios: Studio[] }>);
     const teste = spyOn(service, 'search').and.returnValue(observableOf(mockService));
-    console.log('teste', teste);
     component.search();
     expect(fixture.componentInstance.years.length).toEqual(4);
     expect(component).toBeTruthy();

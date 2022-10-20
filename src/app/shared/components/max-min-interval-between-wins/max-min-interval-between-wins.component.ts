@@ -1,5 +1,4 @@
 import {Component, HostBinding, OnInit} from '@angular/core';
-import {Studio} from "../../models/studio.model";
 import {GenericService, IParameters, Projection} from "../../services/generic.service";
 import {MaxMin} from "../../models/max-min.model";
 
@@ -11,16 +10,22 @@ import {MaxMin} from "../../models/max-min.model";
 export class MaxMinIntervalBetweenWinsComponent implements OnInit {
 
   public title = 'Produtores com maior e menor intervalo entre vitórias';
-  public maxMin: {min: MaxMin[], max: MaxMin[] } = {
+  public maxMin: { min: MaxMin[], max: MaxMin[] } = {
     min: [],
     max: []
   };
   @HostBinding('class') defaultClass = 'card';
 
-  constructor(private readonly genericService: GenericService<{ min: MaxMin[], max: MaxMin[] }>) {
+  constructor(
+      private readonly genericService: GenericService<{ min: MaxMin[], max: MaxMin[] }>
+  ) {
   }
 
   ngOnInit(): void {
+    this.search();
+  }
+
+  search(): void {
     const parameters: IParameters = {
       projection: Projection.MAX_MIN_WIN_INTERVAL_FOR_PRODUCERS
     };
@@ -30,4 +35,5 @@ export class MaxMinIntervalBetweenWinsComponent implements OnInit {
       }
     }, (e) => console.error(e));
   }
+
 }

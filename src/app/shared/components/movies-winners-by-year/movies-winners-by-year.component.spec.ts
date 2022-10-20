@@ -57,7 +57,6 @@ describe('MoviesWinnersByYearComponent', () => {
   it('should have 6 items in the years array', () => {
     service = TestBed.inject(GenericService<WinerByYear[]>);
     const teste = spyOn(service, 'search').and.returnValue(observableOf(mockService));
-    console.log('teste', teste);
     component.fetchItemsByYear();
     expect(fixture.componentInstance.winerByYear.length).toEqual(6);
     expect(component).toBeTruthy();
