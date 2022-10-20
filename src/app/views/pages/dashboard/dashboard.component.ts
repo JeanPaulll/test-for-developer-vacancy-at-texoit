@@ -1,7 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {GenericService, IParameters, Projection} from "../../../shared/services/generic.service";
-import {Year} from "../../../shared/models/years.model";
+import {AfterViewInit, Component} from '@angular/core';
 
+declare const feather: any;
 /**
  * @author Jean Paul - <jeanpaulwebb@gmail.com>
  * @class DashboardComponent
@@ -13,6 +12,8 @@ import {Year} from "../../../shared/models/years.model";
     templateUrl: './dashboard.component.html',
     styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent {
-
+export class DashboardComponent implements AfterViewInit {
+    ngAfterViewInit(): void {
+        feather.replace();
+    }
 }

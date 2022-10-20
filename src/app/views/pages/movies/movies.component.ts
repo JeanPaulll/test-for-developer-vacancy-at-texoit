@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component} from '@angular/core';
 
+declare const feather: any;
 /**
  * @author Jean Paul - <jeanpaulwebb@gmail.com>
  * @class MoviesComponent
@@ -11,6 +12,8 @@ import {Component, OnInit} from '@angular/core';
     templateUrl: './movies.component.html',
     styleUrls: ['./movies.component.scss']
 })
-export class MoviesComponent {
-
+export class MoviesComponent implements AfterViewInit {
+    ngAfterViewInit(): void {
+        feather.replace();
+    }
 }

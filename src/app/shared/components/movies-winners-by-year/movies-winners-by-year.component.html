@@ -15,7 +15,7 @@
         </form>
     </div>
 </div>
-<div class="card-body" *ngIf="init">
+<div class="card-body" [hidden]="!init">
     <div class="table-responsive">
         <table class="table table-hover">
             <thead>
@@ -30,7 +30,7 @@
             <tr [hidden]="winerByYear.length">
                 <th colspan="4">
                     <div class="alert alert-primary" role="alert">
-                        Não encontramos item(ns) que atenda(m) a sua consulta.
+                        {{loading ? 'Carregando' : ' Não encontramos item(ns) que atenda(m) a sua consulta.'}}
                     </div>
                 </th>
             </tr>

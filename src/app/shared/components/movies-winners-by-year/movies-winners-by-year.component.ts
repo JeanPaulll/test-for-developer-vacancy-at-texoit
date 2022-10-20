@@ -14,6 +14,7 @@ export class MoviesWinnersByYearComponent implements OnInit, AfterViewInit {
     public winerByYear: WinerByYear[] = [];
     public form: FormGroup = new FormGroup<any>({year: 0});
     public init = false;
+    public loading = false;
 
     @HostBinding('class') defaultClass = 'card';
 
@@ -28,8 +29,8 @@ export class MoviesWinnersByYearComponent implements OnInit, AfterViewInit {
         this.fetchItemsByYear();
     }
 
-    fetchItemsByYear(){
-        this.winerByYear = [];
+    fetchItemsByYear(): void{
+        this.loading = true;
         const parameters: IParameters = {
             winner: true,
             year: this.form.get('year')?.value || 2015
@@ -38,6 +39,7 @@ export class MoviesWinnersByYearComponent implements OnInit, AfterViewInit {
             if (response) {
                 this.winerByYear = response
             }
+            this.loading = false;
         });
     }
 
