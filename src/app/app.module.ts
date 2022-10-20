@@ -7,6 +7,7 @@ import {SharedModule} from "./shared/shared.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {DashboardComponent} from './views/pages/dashboard/dashboard.component';
 import {MoviesComponent} from './views/pages/movies/movies.component';
+import {NgxMaskModule} from "ngx-mask";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {MoviesComponent} from './views/pages/movies/movies.component';
     HttpClientModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxMaskModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {GenericService, IParameters, Projection} from "../../../shared/services/generic.service";
+import {Year} from "../../../shared/models/years.model";
 
 /**
  * @author Jean Paul - <jeanpaulwebb@gmail.com>
@@ -17,6 +19,7 @@ export class DashboardComponent implements OnInit {
     }
 
     ngOnInit(): void {
+
     }
 
 }
