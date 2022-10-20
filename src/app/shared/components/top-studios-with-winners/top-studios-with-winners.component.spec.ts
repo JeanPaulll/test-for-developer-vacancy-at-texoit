@@ -1,12 +1,11 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TopStudiosWithWinnersComponent } from './top-studios-with-winners.component';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {TopStudiosWithWinnersComponent} from './top-studios-with-winners.component';
 import {GenericService} from "../../services/generic.service";
 import {Studio} from "../../models/studio.model";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
-import { of as observableOf, of, throwError } from 'rxjs';
+import {of as observableOf, of} from 'rxjs';
 
-fdescribe('TopStudiosWithWinnersComponent', () => {
-
+describe('TopStudiosWithWinnersComponent', () => {
   let component: TopStudiosWithWinnersComponent;
   let fixture: ComponentFixture<TopStudiosWithWinnersComponent>;
   let service: GenericService<{ studios: Studio[] }>;

@@ -16,6 +16,10 @@ export class YearsWithmultipleWinnersComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.search();
+    }
+
+    search(): void {
         const parameters: IParameters = {
             projection: Projection.YEARS_WITH_MULTIPLE_WINNERS
         };
