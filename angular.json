@@ -28,9 +28,17 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/vendors/core/core.css",
+              "src/assets/fonts/feather-font/css/iconfont.css",
+              "src/assets/vendors/flag-icon-css/css/flag-icon.min.css",
+              "src/assets/css/demo3/style.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/vendors/core/core.js",
+              "src/assets/vendors/feather-icons/feather.min.js",
+              "src/assets/js/template.js"
+            ]
           },
           "configurations": {
             "production": {
