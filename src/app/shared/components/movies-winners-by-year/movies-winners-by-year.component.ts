@@ -29,6 +29,7 @@ export class MoviesWinnersByYearComponent implements OnInit, AfterViewInit {
     }
 
     fetchItemsByYear(){
+        this.winerByYear = [];
         const parameters: IParameters = {
             winner: true,
             year: this.form.get('year')?.value || 2015
