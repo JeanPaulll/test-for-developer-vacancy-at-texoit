@@ -52,4 +52,8 @@ https://test-dev-texoit.netlify.app
 
 ## Protótipos
 ![Protótipo 1](https://raw.githubusercontent.com/JeanPaulll/test-for-developer-vacancy-at-texo-it/master/src/assets/prototipos/1.png)
-![Protótipo 1](https://raw.githubusercontent.com/JeanPaulll/test-for-developer-vacancy-at-texo-it/master/src/assets/prototipos/2.png)
+![Protótipo 2](https://raw.githubusercontent.com/JeanPaulll/test-for-developer-vacancy-at-texo-it/master/src/assets/prototipos/2.png)
+
+## Test coverage
+![Karma Jasmine](https://raw.githubusercontent.com/JeanPaulll/test-for-developer-vacancy-at-texo-it/master/src/assets/prototipos/3.png)
+![Coverage](https://raw.githubusercontent.com/JeanPaulll/test-for-developer-vacancy-at-texo-it/master/src/assets/prototipos/4.png)
