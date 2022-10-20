@@ -11,7 +11,7 @@ import {MessagesValidationService} from './messages-validation-service';
  * @date 22/10/2022
  */
 @Component({
-  selector: 'messages-control-validations',
+  selector: 'app-messages-control-validations',
   template: `
     <ng-template [ngIf]="errorMessage !== null">{{errorMessage}}</ng-template>
   `

@@ -7,16 +7,20 @@ da categoria Pior Filme do Golden Raspberry Awards.
 [Texoit](https:///www.texoit.com)
 
 ## Para visualizar o resultado acesse:
+
 https://test-dev-texoit.netlify.app
-* [Demonstração](https://test-dev-texoit.netlify.app)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/db1b787d-ccb6-48ab-905d-c0c6cbeb4de6/deploy-status)](https://app.netlify.com/sites/test-dev-texoit/deploys)
 
 ## A aplicação deverá ser composta por 2 views:
+
 - Dashboard
 - Lista de todos os filmes
 
 ## Requisitos do sistema:
 
-1. O dashboard deve ser criado conforme especificado pelo anexo 1 (ver página de anexos) e deverá ser composto por 4 painéis com os seguintes requisitos:
+1. O dashboard deve ser criado conforme especificado pelo anexo 1 (ver página de anexos) e deverá ser composto por 4
+   painéis com os seguintes requisitos:
    * Mostrar em uma tabela os anos que veram mais de um vencedor;
    * Mostrar em uma tabela os três estúdios com mais vitórias
    * Mostrar em tabelas os produtores com maior e menor intervalo entre

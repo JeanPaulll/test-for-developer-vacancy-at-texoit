@@ -10,7 +10,7 @@
                         <i data-feather="search"></i>
                     </button>
                 </div>
-                <messages-control-validations [control]="form?.get('year')"></messages-control-validations>
+                <app-messages-control-validations [control]="form.get('year')"></app-messages-control-validations>
             </div>
         </form>
     </div>
@@ -27,7 +27,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr [hidden]="winerByYear?.length">
+            <tr [hidden]="winerByYear.length">
                 <th colspan="4">
                     <div class="alert alert-primary" role="alert">
                         Não encontramos item(ns) que atenda(m) a sua consulta.
@@ -48,13 +48,12 @@
         </table>
     </div>
 </div>
-
 <div class="modal fade" id="yearModal" tabindex="-1" aria-labelledby="winnerModal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="winnerModal">
-                    {{winerByYear[0]?.title}}
+                    {{winerByYear[0].title}}
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
             </div>
