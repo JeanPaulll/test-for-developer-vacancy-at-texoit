@@ -1,0 +1,136 @@
+<div class="row">
+    <div class="col-md-12 stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Filtros</h6>
+                <form [formGroup]="form">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label class="form-label">Por ano</label>
+                                <input type="text" class="form-control" mask="0000" formControlName="year" placeholder="Exemplo: 2022">
+                                <app-messages-control-validations [control]="form.get('year')"></app-messages-control-validations>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label class="form-label">Por vencedor</label>
+                                <select class="form-select" id="winner" formControlName="winner">
+                                    <option selected disabled>Selecione uma opção</option>
+                                    <option value="1">SIM</option>
+                                    <option value="0">NÃO</option>
+                                </select>
+                                <app-messages-control-validations [control]="form.get('winner')"></app-messages-control-validations>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <button type="button" class="btn btn-primary btn-icon-text" [disabled]="!form.valid" (click)="fetchMovies()">
+                    <i class="btn-icon-prepend" data-feather="filter"></i>
+                    Filtrar
+                </button>
+                &nbsp;
+                <button type="button" class="btn btn-secondary btn-icon-text" (click)="clearForm()">
+                    Limpar Filtro
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card-body" [hidden]="!init">
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Ano</th>
+                <th>Titulo</th>
+                <th>Vencedor</th>
+                <th>Ação</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr [hidden]="lisMovies.length">
+                <th colspan="5">
+                    <div class="alert alert-primary" role="alert">
+                        {{loading ? 'Carregando...' : ' Não encontramos item(ns) que atenda(m) seu filtro.'}}
+                    </div>
+                </th>
+            </tr>
+            <tr *ngFor="let winer of lisMovies; let i = index">
+                <th>{{winer?.id}}</th>
+                <th>{{winer?.year}}</th>
+                <th>{{winer?.title}}</th>
+                <th>{{winer?.winner ? 'SIM' : 'NÃO'}}</th>
+                <th>
+                    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#yearModal">
+                        Visualizar
+                    </button>
+                </th>
+            </tr>
+            </tbody>
+        </table>
+        <nav aria-label="Pages of Movies">
+            <ul class="pagination justify-content-end">
+                <li class="page-item">
+                    <div class="forPage">
+                        <form [formGroup]="form">
+                            <select class="form-select" id="forPage" formControlName="forPage">
+                                <option selected disabled>Itens por página</option>
+                                <option value="1">1</option>
+                                <option value="3">3</option>
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="99">99</option>
+                            </select>
+                            <app-messages-control-validations [control]="form.get('forPage')"></app-messages-control-validations>
+                        </form>
+                    </div>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" (click)="backPage()">
+                        <i data-feather="chevron-left"></i>
+                    </a>
+                </li>
+                <li class="page-item" [ngClass]="{active: i === pagination.number - 1}"
+                    *ngFor="let item of [].constructor(pagination.totalElements >= 3 ? 3: pagination.totalElements); let i = index" >
+                    <a class="page-link" (click)="fetchMovies(i+1)">{{i+1}}</a>
+                </li>
+                <li class="page-item"><a class="page-link" (click)="nextPage()">
+                    <i data-feather="chevron-right"></i></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div class="modal fade" id="yearModal" tabindex="-1" aria-labelledby="winnerModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="winnerModal">
+                    {{lisMovies[0].title}}
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
+            </div>
+            <div class="modal-body">
+                <h5>Studios:</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" *ngFor="let item of lisMovies[0]?.studios">
+                        {{item}}
+                    </li>
+                </ul>
+                <h5>Prudutores:</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" *ngFor="let item of lisMovies[0]?.producers">
+                        {{item}}
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>

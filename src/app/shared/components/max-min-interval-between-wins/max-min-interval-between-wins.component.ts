@@ -2,10 +2,14 @@ import {Component, HostBinding, OnInit} from '@angular/core';
 import {GenericService, IParameters, Projection} from "../../services/generic.service";
 import {MaxMin} from "../../models/max-min.model";
 
+/**
+ * @author Jean Paul - <jeanpaulwebb@gmail.com>
+ * @class MaxMinIntervalBetweenWinsComponent
+ * @date 20/10/2022
+ */
 @Component({
   selector: 'app-max-min-interval-between-wins',
-  templateUrl: './max-min-interval-between-wins.component.html',
-  styleUrls: ['./max-min-interval-between-wins.component.scss']
+  templateUrl: './max-min-interval-between-wins.component.html'
 })
 export class MaxMinIntervalBetweenWinsComponent implements OnInit {
 

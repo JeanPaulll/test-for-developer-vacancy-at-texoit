@@ -10,6 +10,7 @@ export class WinerByYear {
     public title = undefined;
     public studios = [];
     public producers = [];
+    public winner = false;
 
     constructor(fields?: {
         id?: number,
@@ -17,6 +18,7 @@ export class WinerByYear {
         title?: string,
         studios?: string[],
         producers: string[]
+        winner: boolean
     }) {
         Object.assign(this, fields);
     }

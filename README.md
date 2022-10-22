@@ -17,6 +17,11 @@ https://test-dev-texoit.netlify.app
 - Dashboard
 - Lista de todos os filmes
 
+## A página deve possuir um menu com links para as views.
+- Os dados serão obtidos através de uma API 
+https://tools.texoit.com/backend-java/api/movies.
+- O detalhamento pode ser obtido na seção Formato da API. Deve-se também criar testes unitários e incluir um arquivo readme com as instruções para rodar o projeto.
+
 ## Requisitos do sistema:
 
 1. O dashboard deve ser criado conforme especificado pelo anexo 1 (ver página de anexos) e deverá ser composto por 4

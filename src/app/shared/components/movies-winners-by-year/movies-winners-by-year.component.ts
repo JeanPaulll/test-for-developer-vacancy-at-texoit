@@ -3,10 +3,14 @@ import {GenericService, IParameters} from "../../services/generic.service";
 import {WinerByYear} from "../../models/winerByYear.model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
+/**
+ * @author Jean Paul - <jeanpaulwebb@gmail.com>
+ * @class MoviesWinnersByYearComponent
+ * @date 20/10/2022
+ */
 @Component({
     selector: 'app-movies-winners-by-year',
-    templateUrl: './movies-winners-by-year.component.html',
-    styleUrls: ['./movies-winners-by-year.component.scss']
+    templateUrl: './movies-winners-by-year.component.html'
 })
 export class MoviesWinnersByYearComponent implements OnInit, AfterViewInit {
 

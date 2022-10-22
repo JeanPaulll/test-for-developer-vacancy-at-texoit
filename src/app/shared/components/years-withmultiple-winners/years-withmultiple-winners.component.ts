@@ -2,10 +2,14 @@ import {Component, HostBinding, OnInit} from '@angular/core';
 import {GenericService, IParameters, Projection} from "../../services/generic.service";
 import {Year} from "../../models/years.model";
 
+/**
+ * @author Jean Paul - <jeanpaulwebb@gmail.com>
+ * @class YearsWithmultipleWinnersComponent
+ * @date 20/10/2022
+ */
 @Component({
     selector: 'app-years-withmultiple-winners',
-    templateUrl: './years-withmultiple-winners.component.html',
-    styleUrls: ['./years-withmultiple-winners.component.scss']
+    templateUrl: './years-withmultiple-winners.component.html'
 })
 export class YearsWithmultipleWinnersComponent implements OnInit {
     public title = 'Anos que tiveram mais de um vencedor';

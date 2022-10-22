@@ -2,10 +2,14 @@ import {Component, HostBinding, OnInit} from '@angular/core';
 import {GenericService, IParameters, Projection} from "../../services/generic.service";
 import {Studio} from "../../models/studio.model";
 
+/**
+ * @author Jean Paul - <jeanpaulwebb@gmail.com>
+ * @class TopStudiosWithWinnersComponent
+ * @date 20/10/2022
+ */
 @Component({
     selector: 'app-top-studios-with-winners',
-    templateUrl: './top-studios-with-winners.component.html',
-    styleUrls: ['./top-studios-with-winners.component.scss']
+    templateUrl: './top-studios-with-winners.component.html'
 })
 export class TopStudiosWithWinnersComponent implements OnInit {
 
