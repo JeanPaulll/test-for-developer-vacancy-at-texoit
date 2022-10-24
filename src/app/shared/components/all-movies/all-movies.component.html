@@ -35,7 +35,7 @@
                     Filtrar
                 </button>
                 &nbsp;
-                <button (click)="clearForm()" class="btn btn-secondary btn-icon-text" type="button">
+                <button (click)="clearFormResetMovie()" class="btn btn-secondary btn-icon-text" type="button">
                     Limpar Filtro
                 </button>
             </div>
@@ -105,7 +105,6 @@
                     class="page-item">
                     <a (click)="fetchMovies(i+1)" class="page-link">{{i + 1}}</a>
                 </li>
-
                 <li *ngIf="pagination.number > 5" class="page-item active">
                     <a class="page-link">{{pagination.number}}</a>
                 </li>

@@ -4,8 +4,6 @@ import {GenericService, IParameters} from "../../services/generic.service";
 import {Pagination} from "../../models/pagination.model";
 import {WinerByYear} from "../../models/winerByYear.model";
 
-declare const $: any;
-
 /**
  * @author Jean Paul - <jeanpaulwebb@gmail.com>
  * @class AllMoviesComponent
@@ -26,6 +24,7 @@ export class AllMoviesComponent implements OnInit, AfterViewInit {
     public init = false;
     public loading = false;
     public pagination: Pagination<WinerByYear> = new Pagination<WinerByYear>();
+    private timeout: NodeJS.Timeout | undefined;
 
     @HostBinding('class') defaultClass = 'card';
 
@@ -44,25 +43,24 @@ export class AllMoviesComponent implements OnInit, AfterViewInit {
         this.lisMovies = [];
         const winner = +this.form.get('winner')?.value;
         const year = +this.form.get('year')?.value || null;
-        const searchForWinner = (justforWinner: boolean = false) => {
+        const searchForWinner = (movies: WinerByYear[]) => {
             /**
              * Bring both types
              */
             if (winner == 2) {
-                this.lisMovies = Object.assign([], this.lisMovies);
+                this.lisMovies = Object.assign([], movies);
             } else if (winner == 1) {
-                this.lisMovies = Object.assign([], this.lisMovies.filter((r: WinerByYear) => r.winner));
-            } else {
-                this.lisMovies = Object.assign([], this.lisMovies.filter((r: WinerByYear) => !r.winner));
-            }
-            if (justforWinner) {
-                this.lisMovies = Object.assign([], this.savedMovieList);
+                this.lisMovies = Object.assign([], movies.filter((r: WinerByYear) => r.winner));
+            } else if (!winner) {
+                this.lisMovies = Object.assign([], movies.filter((r: WinerByYear) => !r.winner));
             }
         }
         if (year) {
             this.lisMovies = this.savedMovieList.filter((r: WinerByYear) => r.year === year);
-            searchForWinner();
-        } else searchForWinner(true);
+        } else {
+            this.lisMovies = Object.assign([], this.savedMovieList);
+        }
+        searchForWinner(this.lisMovies);
     }
 
     fetchMovies(page: number = 1): void {
@@ -74,22 +72,24 @@ export class AllMoviesComponent implements OnInit, AfterViewInit {
             this.savedMovieList = Object.assign([], this.lisMovies);
             this.loading = false;
             this.setPagination(response);
+            this.clearFilterInputs();
         });
-    }
-
-    public clearForm(): void {
-        this.form.reset();
-        this.form.get('winner')?.setValue(2);
-        this.form.get('forPage')?.setValue(10);
-        this.lisMovies = Object.assign([], this.savedMovieList);
     }
 
     ngAfterViewInit(): void {
         setTimeout(() => this.init = true, 300);
-        this.form.get('forPage')?.valueChanges.subscribe((r) => {
-            this.fetchMovies();
+        const waitToFilter = (ms: number) => this.timeout = setTimeout(() => this.filter(), ms);
+        this.form.get('forPage')?.valueChanges.subscribe(r => this.fetchMovies());
+        this.form.get('year')?.valueChanges.subscribe((r) => {
+            clearTimeout(this.timeout)
+            if (r.length === 4) waitToFilter(1000);
+        });
+        this.form.get('winner')?.valueChanges.subscribe((r) => {
+            clearTimeout(this.timeout)
+            waitToFilter(500);
         });
     }
+
 
     public nextPage(): void {
         const page = this.pagination.number + 1;
@@ -109,6 +109,13 @@ export class AllMoviesComponent implements OnInit, AfterViewInit {
         }
     }
 
+    public clearFormResetMovie(): void {
+        this.form.reset();
+        this.form.get('winner')?.setValue(2);
+        this.form.get('forPage')?.setValue(10);
+        this.lisMovies = Object.assign([], this.savedMovieList);
+    }
+
     private setPagination(pagination: Pagination<WinerByYear>): void {
         this.pagination = pagination;
     }
@@ -122,5 +129,10 @@ export class AllMoviesComponent implements OnInit, AfterViewInit {
             winner: [2],
             forPage: [10],
         });
+    }
+
+    private clearFilterInputs(): void {
+        this.form.get('winner')?.setValue(2);
+        this.form.get('year')?.setValue('');
     }
 }
