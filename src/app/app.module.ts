@@ -31,4 +31,5 @@ import {GithubComponent} from './views/pages/github/github.component';
     providers: [],
     bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

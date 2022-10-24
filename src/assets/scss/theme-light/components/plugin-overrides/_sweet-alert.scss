@@ -23,13 +23,16 @@
   .swal2-actions {
     button {
       @extend .btn;
+
       &.swal2-confirm {
         @extend .btn-primary;
       }
+
       &.swal2-cancel {
         @extend .btn-danger;
         @extend .border-danger;
       }
+
       svg {
         width: 16px;
         height: 16px;
@@ -39,6 +42,7 @@
 
   .swal2-close {
     font-size: 22px;
+
     &:focus {
       box-shadow: none;
     }

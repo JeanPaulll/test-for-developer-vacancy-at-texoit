@@ -41,16 +41,16 @@ textarea:visited {
   box-shadow: none;
 }
 
-select, 
+select,
 .form-check-input {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
 
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active  {
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px $input-bg inset;
   -webkit-text-fill-color: $body-color;
 }

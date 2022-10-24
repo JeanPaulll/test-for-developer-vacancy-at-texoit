@@ -2,11 +2,14 @@
     <div class="card-body">
         <h6 class="card-title">LISTAR VENCEDORES DE FILMES POR ANO</h6>
         <p class="text-muted mb-3">Pesquisar por ano</p>
-        <form class="search-form" [formGroup]="form">
+        <form [formGroup]="form" class="search-form">
             <div class="form-group">
                 <div class="input-group">
-                    <input type="text" class="form-control" mask="0000" formControlName="year" placeholder="Busque por uma data. Exemplo: 2022">
-                    <button type="button" class="btn btn-primary btn-icon" (click)="fetchItemsByYear()" [disabled]="!form.valid">
+                    <input class="form-control" formControlName="year" mask="0000"
+                           placeholder="Busque por uma data. Exemplo: 2022"
+                           type="text">
+                    <button (click)="fetchItemsByYear()" [disabled]="!form.valid" class="btn btn-primary btn-icon"
+                            type="button">
                         <i data-feather="search"></i>
                     </button>
                 </div>
@@ -15,7 +18,7 @@
         </form>
     </div>
 </div>
-<div class="card-body" [hidden]="!init">
+<div [hidden]="!init" class="card-body">
     <div class="table-responsive">
         <table class="table table-hover">
             <thead>
@@ -39,7 +42,7 @@
                 <th>{{winer?.year}}</th>
                 <th>{{winer?.title}}</th>
                 <th>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#yearModal">
+                    <button class="btn btn-primary" data-bs-target="#yearModal" data-bs-toggle="modal" type="button">
                         Visualizar
                     </button>
                 </th>
@@ -48,31 +51,32 @@
         </table>
     </div>
 </div>
-<div class="modal fade" id="yearModal" tabindex="-1" aria-labelledby="winnerModal" aria-hidden="true">
+<div *ngIf="winerByYear.length" aria-hidden="true" aria-labelledby="winnerModal" class="modal fade" id="yearModal"
+     tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="winnerModal">
                     {{winerByYear[0].title}}
                 </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
+                <button aria-label="btn-close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
             </div>
             <div class="modal-body">
                 <h5>Studios:</h5>
-               <ul class="list-group list-group-flush">
-                   <li class="list-group-item" *ngFor="let item of winerByYear[0]?.studios">
+                <ul class="list-group list-group-flush">
+                    <li *ngFor="let item of winerByYear[0]?.studios" class="list-group-item">
                         {{item}}
-                   </li>
-               </ul>
+                    </li>
+                </ul>
                 <h5>Prudutores:</h5>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item" *ngFor="let item of winerByYear[0]?.producers">
+                    <li *ngFor="let item of winerByYear[0]?.producers" class="list-group-item">
                         {{item}}
                     </li>
                 </ul>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Fechar</button>
             </div>
         </div>
     </div>

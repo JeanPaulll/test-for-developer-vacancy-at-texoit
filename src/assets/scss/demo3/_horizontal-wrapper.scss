@@ -5,10 +5,12 @@
       max-width: 100%;
     }
   }
+
   @media (max-width: 991px) {
     margin-top: $navbar-height;
   }
- .page-content {
+
+  .page-content {
     padding: 2rem 0;
     @include make-container();
     @extend .container;
@@ -26,8 +28,10 @@
       @media(min-width: 1200px) {
         display: block;
       }
+
       .content-nav {
         padding: 0px 25px;
+
         .nav-item {
           .nav-link {
             padding: 0;

@@ -21,6 +21,7 @@ export class AllMoviesComponent implements OnInit, AfterViewInit {
 
     public title = 'Listagem de Filmes';
     public lisMovies: WinerByYear[] = [];
+    public savedMovieList: WinerByYear[] = [];
     public form: FormGroup = new FormGroup<any>({year: 0});
     public init = false;
     public loading = false;
@@ -39,53 +40,48 @@ export class AllMoviesComponent implements OnInit, AfterViewInit {
         this.fetchMovies();
     }
 
+    public filter(): void {
+        this.lisMovies = [];
+        const winner = +this.form.get('winner')?.value;
+        const year = +this.form.get('year')?.value || null;
+        const searchForWinner = (justforWinner: boolean = false) => {
+            /**
+             * Bring both types
+             */
+            if (winner == 2) {
+                this.lisMovies = Object.assign([], this.lisMovies);
+            } else if (winner == 1) {
+                this.lisMovies = Object.assign([], this.lisMovies.filter((r: WinerByYear) => r.winner));
+            } else {
+                this.lisMovies = Object.assign([], this.lisMovies.filter((r: WinerByYear) => !r.winner));
+            }
+            if (justforWinner) {
+                this.lisMovies = Object.assign([], this.savedMovieList);
+            }
+        }
+        if (year) {
+            this.lisMovies = this.savedMovieList.filter((r: WinerByYear) => r.year === year);
+            searchForWinner();
+        } else searchForWinner(true);
+    }
+
     fetchMovies(page: number = 1): void {
         this.loading = true;
-        const size = +this.form.get('forPage')?.value || 1;
-        const parameters: IParameters = {
-            page,
-            size,
-            winner: (!!+this.form.get('winner')?.value),
-            year: this.form.get('year')?.value || 2015
-        };
+        const size = +this.form.get('forPage')?.value || 10;
+        const parameters: IParameters = {page, size};
         this.genericService.search(parameters).subscribe((response: Pagination<WinerByYear>) => {
             this.lisMovies = response.content.length ? response.content : [];
+            this.savedMovieList = Object.assign([], this.lisMovies);
             this.loading = false;
             this.setPagination(response);
-            this.initDataTable();
-        });
-    }
-
-    private setPagination(pagination: Pagination<WinerByYear>): void {
-        this.pagination = pagination;
-    }
-
-    private createForm(): void {
-        this.form = this.formBuilder.group({
-            year: ['', [
-                Validators.minLength(4),
-                Validators.maxLength(4)]
-            ],
-            winner: [1],
-            forPage: [1],
         });
     }
 
     public clearForm(): void {
         this.form.reset();
-    }
-
-    private initDataTable(): void {
-        $('#dataTableExample').DataTable({
-            "aLengthMenu": [
-                [10, 30, 50, -1],
-                [10, 30, 50, "Tudo"]
-            ],
-            "iDisplayLength": 10,
-            language: {
-                url: "assets/js/pt_br.json"
-            }
-        });
+        this.form.get('winner')?.setValue(2);
+        this.form.get('forPage')?.setValue(10);
+        this.lisMovies = Object.assign([], this.savedMovieList);
     }
 
     ngAfterViewInit(): void {
@@ -111,5 +107,20 @@ export class AllMoviesComponent implements OnInit, AfterViewInit {
         } else {
             this.lisMovies = [];
         }
+    }
+
+    private setPagination(pagination: Pagination<WinerByYear>): void {
+        this.pagination = pagination;
+    }
+
+    private createForm(): void {
+        this.form = this.formBuilder.group({
+            year: ['', [
+                Validators.minLength(4),
+                Validators.maxLength(4)]
+            ],
+            winner: [2],
+            forPage: [10],
+        });
     }
 }

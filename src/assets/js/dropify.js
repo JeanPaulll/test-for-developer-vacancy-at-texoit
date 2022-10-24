@@ -1,9 +1,9 @@
 // npm package: dropify
 // github link: https://github.com/JeremyFagis/dropify
 
-$(function() {
-  'use strict';
+$(function () {
+    'use strict';
 
-  $('#myDropify').dropify();
+    $('#myDropify').dropify();
 
 });

@@ -6,13 +6,9 @@
 
 // Theme style for demo3 (Horizontal Layout - Light, Light-RTL, Dark-header)
 
-
-
-
 // Custom variables
 @import '../theme-light/variables';
 @import './variables';
-
 
 // Bootstrap stylesheets
 @import "bootstrap/scss/functions";
@@ -58,7 +54,6 @@
 // Bootstrap utilities
 @import '../common/utilities';
 @import "bootstrap/scss/utilities/api";
-
 
 // Custom mixins
 @import '../common/mixins/animation';

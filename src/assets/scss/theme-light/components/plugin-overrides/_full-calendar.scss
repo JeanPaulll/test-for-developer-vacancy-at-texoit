@@ -4,20 +4,24 @@
 .fc {
   --fc-button-active-bg-color: #{$primary};
   --fc-button-active-border-color: #{$primary};
+
   .fc-button-primary {
     @extend .btn;
     @extend .btn-outline-primary;
     @extend .btn-sm;
   }
-  .fc-button-primary:not(:disabled).fc-button-active, 
+
+  .fc-button-primary:not(:disabled).fc-button-active,
   .fc-button-primary:not(:disabled):active {
     @extend .btn-primary;
   }
+
   .fc-button .fc-icon {
-    font-size: 1.2 em;
+    font-size: 1.2em;
   }
-  .fc-button-primary:focus, 
-  .fc-button-primary:not(:disabled).fc-button-active:focus, 
+
+  .fc-button-primary:focus,
+  .fc-button-primary:not(:disabled).fc-button-active:focus,
   .fc-button-primary:not(:disabled):active:focus {
     box-shadow: none;
   }
@@ -58,14 +62,14 @@
   }
 }
 
-.fc-theme-standard td, 
+.fc-theme-standard td,
 .fc-theme-standard th,
 .fc-theme-standard .fc-scrollgrid {
   border-color: $border-color;
 }
 
-.fc-timegrid-event-harness-inset .fc-timegrid-event, 
-.fc-timegrid-event.fc-event-mirror, 
+.fc-timegrid-event-harness-inset .fc-timegrid-event,
+.fc-timegrid-event.fc-event-mirror,
 .fc-timegrid-more-link {
   box-shadow: none;
 }
@@ -74,6 +78,7 @@
   background-color: $dropdown-bg;
   border-color: $dropdown-border-color;
   box-shadow: $dropdown-box-shadow;
+
   .fc-popover-header {
     background-color: $secondary;
   }

@@ -6,11 +6,13 @@
         color: $body-color;
         background-color: $nav-tabs-link-bg;
         cursor: pointer;
+
         &.active {
           border-color: $nav-tabs-link-active-border-color;
           color: $primary;
           background: $nav-tabs-link-active-bg;
         }
+
         &.disabled {
           background-color: transparent;
           color: $text-muted;
@@ -18,8 +20,10 @@
         }
       }
     }
+
     &.nav-tabs-vertical {
       border-bottom: 0;
+
       .nav-link {
         width: 100%;
         border: 1px solid transparent;
@@ -27,12 +31,15 @@
         border-color: $nav-tabs-link-border-color;
         color: $body-color;
         background-color: $nav-tabs-link-bg;
+
         &:first-child {
           border-radius: $border-radius 0 0 0;
         }
+
         &:last-child {
           border-radius: 0 0 0 $border-radius;
         }
+
         &.active {
           background-color: $nav-tabs-link-active-bg;
           color: $primary;
@@ -40,10 +47,12 @@
         }
       }
     }
+
     &.nav-tabs-line {
       .nav-link {
         border: 0;
         background-color: transparent;
+
         &.active {
           border-bottom: 2px solid $primary;
         }
@@ -51,6 +60,7 @@
     }
   }
 }
+
 .tab-content {
   &.tab-content-vertical {
     height: 100%;

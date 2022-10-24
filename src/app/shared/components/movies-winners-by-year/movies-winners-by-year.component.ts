@@ -33,7 +33,7 @@ export class MoviesWinnersByYearComponent implements OnInit, AfterViewInit {
         this.fetchItemsByYear();
     }
 
-    fetchItemsByYear(): void{
+    fetchItemsByYear(): void {
         this.loading = true;
         const parameters: IParameters = {
             winner: true,
@@ -47,6 +47,10 @@ export class MoviesWinnersByYearComponent implements OnInit, AfterViewInit {
         });
     }
 
+    ngAfterViewInit(): void {
+        setTimeout(() => this.init = true, 300);
+    }
+
     private createForm(): void {
         this.form = this.formBuilder.group({
             year: ['', [
@@ -55,10 +59,6 @@ export class MoviesWinnersByYearComponent implements OnInit, AfterViewInit {
                 Validators.maxLength(4)]
             ],
         });
-    }
-
-    ngAfterViewInit(): void {
-        setTimeout(()=> this.init = true, 300);
     }
 }
 

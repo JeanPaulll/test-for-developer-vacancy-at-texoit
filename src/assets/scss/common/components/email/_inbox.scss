@@ -4,22 +4,28 @@
     @media(max-width: 991px) {
       display: none;
     }
+
     &.show {
       @media(max-width: 991px) {
         display: block;
       }
     }
   }
+
   .nav-item {
     border-radius: .2rem;
+
     .nav-link {
       color: $body-color;
+
       svg {
         color: $text-muted;
       }
     }
+
     &.active, &:hover {
       background: rgba($primary, .1);
+
       .nav-link {
         &, svg {
           color: $primary;
@@ -35,32 +41,40 @@
   border-bottom: 1px solid $border-color;
   padding: 10px 20px;
   cursor: pointer;
+
   &:hover {
     background: rgba($primary, .08);
   }
+
   &:last-child {
     margin-bottom: 5px;
   }
+
   .email-list-actions {
     width: 40px;
     vertical-align: top;
     display: table-cell;
+
     .form-check {
       margin-bottom: 0;
     }
+
     .favorite {
       display: block;
       padding-left: 1px;
       line-height: 15px;
+
       span {
         svg {
           width: 14px;
           color: $text-muted;
         }
       }
+
       &:hover span {
         color: #8d8d8d;
       }
+
       &.active {
         span {
           svg {
@@ -70,19 +84,23 @@
       }
     }
   }
+
   .email-list-detail {
     width: calc(100% - 40px);
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-grow: 1;
+
     .content {
       overflow: hidden;
+
       .from {
         display: block;
         margin: 0 0 1px 0;
         color: $body-color;
       }
+
       .msg {
         width: 97%;
         color: $secondary;
@@ -92,9 +110,11 @@
         white-space: nowrap;
       }
     }
+
     .date {
       color: $body-color;
       white-space: nowrap;
+
       .icon {
         svg {
           width: 14px;
@@ -104,12 +124,15 @@
       }
     }
   }
+
   &.email-list-item--unread {
     background-color: rgba($primary, .09);
+
     .content {
       .from {
         font-weight: 500;
       }
+
       .msg {
         font-weight: 700;
       }

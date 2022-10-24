@@ -7,11 +7,13 @@
       @media(max-width: 767px) {
         text-align: left;
       }
+
       select {
         margin-left: 10px;
         margin-right: 10px;
       }
     }
+
     .dataTables_filter {
       @media(max-width: 767px) {
         text-align: left;
@@ -19,9 +21,10 @@
       }
     }
   }
+
   div {
     &.dataTables_paginate {
-      ul { 
+      ul {
         &.pagination {
           @extend .justify-content-center;
           @extend .justify-content-md-end;
@@ -33,14 +36,14 @@
   }
 }
 
-div.table-responsive>div.dataTables_wrapper>div.row>div[class^=col-]:first-child {
+div.table-responsive > div.dataTables_wrapper > div.row > div[class^=col-]:first-child {
   /*rtl:raw:
     padding-right: 0;
     padding-left: 12px;
   */
 }
 
-div.table-responsive>div.dataTables_wrapper>div.row>div[class^=col-]:last-child {
+div.table-responsive > div.dataTables_wrapper > div.row > div[class^=col-]:last-child {
   /*rtl:raw:
     padding-left: 0;
     padding-right: 12px;

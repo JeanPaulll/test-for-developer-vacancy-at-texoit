@@ -1,6 +1,7 @@
 import {AfterViewInit, Component} from '@angular/core';
 
 declare const feather: any;
+
 /**
  * @author Jean Paul - <jeanpaulwebb@gmail.com>
  * @class DashboardComponent

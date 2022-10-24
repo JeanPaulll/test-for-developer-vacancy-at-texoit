@@ -13,16 +13,20 @@
   border: 1px solid $input-border-color;
   border-bottom: 0;
   border-radius: $input-border-radius $input-border-radius 0 0;
+
   &, &:hover {
     opacity: 1;
   }
+
   button {
     color: rgba($body-color, .7) !important;
+
     &:hover {
       background: $gray-200;
       border: none;
     }
   }
+
   i.separator {
     border-left: 1px solid $input-border-color;
     border-right: 1px solid $input-border-color;
@@ -39,7 +43,7 @@
   border-color: $input-border-color;
 }
 
-.editor-toolbar button.active,.editor-toolbar button:hover {
+.editor-toolbar button.active, .editor-toolbar button:hover {
   background: $gray-200;
   border-color: transparent;
 }

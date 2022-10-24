@@ -9,8 +9,10 @@
   direction: rtl;
   */
 }
+
 .tt-menu {
   @extend .dropdown-menu;
+
   .tt-suggestion {
     @extend .dropdown-item;
     cursor: pointer;
