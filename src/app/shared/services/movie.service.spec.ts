@@ -25,7 +25,7 @@ describe('MovieService', () => {
         expect(service).toBeTruthy();
     });
 
-    it('deve busca embossadoras com filtro', () => {
+    it('should search studios with win count', () => {
         const parameters: IParameters = {
             projection: Projection.STUDIOS_WITH_WIN_COUNT
         };
